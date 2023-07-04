@@ -16,9 +16,9 @@ let rooms = [{
     pricePerhr:"100"
 }];
 let bookings = [{
-    customer: "Santosh",
-    bookingDate: "20230530",
-    startTime: "12noon",
+    customer: "Selva",
+    bookingDate: "20230612",
+    startTime: "12:00pm",
     endTime: "11:59am",
     bookingID: "B1",
     roomId: "R1",
@@ -27,12 +27,12 @@ let bookings = [{
 }
 ];
 let customers = [
-    { name: 'Santosh',
+    { name: 'Selva',
      bookings: [ 
         {
-            customer: 'Santosh',
-            bookingDate: '20230530',
-            startTime: '12noon',
+            customer: 'Selva',
+            bookingDate: '20230612',
+            startTime: '12:00pm',
             endTime: '11:59am',
             bookingID: 'B1',
             roomId: 'R1',
@@ -102,7 +102,6 @@ app.post("/booking/create/:id", (req,res)=>{
                 } else {
                     customers.push({ name:newbooking.customer,bookings:[newbooking]});
                 }
-                console.log(customers.map(items=>items.bookings))
               return res.status(201).json({message:"hall booked", Bookings:bookings, added:newbooking});
   
       }
@@ -145,8 +144,8 @@ app.get('/customers', (req, res) => {
       return;
     }
     const customerBookings = customer.bookings.map(booking => {
-      const { roomId, startTime, endTime, bookingID, status, bookingDate,booked_On } = booking;
-      return { name, roomId, startTime, endTime, bookingID, status, bookingDate,booked_On };
+      const { customer,roomId, startTime, endTime, bookingID, status, bookingDate,booked_On } = booking;
+      return { customer, roomId, startTime, endTime, bookingID, status, bookingDate,booked_On };
     });
     res.json(customerBookings);
   });
