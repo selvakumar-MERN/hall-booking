@@ -140,8 +140,8 @@ app.get('/customers', (req, res) => {
       return;
     }
     const customerBookings = customer.bookings.map(booking => {
-      const { roomId, startTime, endTime, bookingID, status, bookingDate,booked_On } = booking;
-      return { name, roomId, startTime, endTime, bookingID, status, bookingDate,booked_On };
+      const { customer,roomId, startTime, endTime, bookingID, status, bookingDate,booked_On } = booking;
+      return { customer, roomId, startTime, endTime, bookingID, status, bookingDate,booked_On };
     });
     res.json(customerBookings);
   });
