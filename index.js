@@ -3,7 +3,11 @@ const bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.json());
+/*
 
+Postman documentation url - https://documenter.getpostman.com/view/27867831/2s93zE1ysM
+
+*/
 //creating variables for storing data
 let rooms = [{
     roomId:"R1",
